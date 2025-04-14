@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estadio Interactivo</title>
   <style>
     body {
@@ -21,29 +22,30 @@
       margin: auto;
     }
 
-    .imagen-estadio {
-      width: 100%;
-      display: block;
-    }
-
     .imagen-wrapper {
       width: 100%;
       position: relative;
+      aspect-ratio: 16 / 9;
     }
 
-    /* BOTONES PERSONALIZADOS */
+    .imagen-estadio {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .boton {
       position: absolute;
-      padding: 16px 20px;
-      font-size: 15px;
+      padding: 2vw 2.5vw;
+      font-size: 3vw;
       font-weight: bold;
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 1vw;
       cursor: pointer;
       transition: all 0.3s ease;
-      width: 180px;
-      height: 70px;
+      width: 25vw;
+      height: 8vw;
       text-align: center;
       white-space: normal;
       word-wrap: break-word;
@@ -60,50 +62,56 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
 
-    /* Posiciones */
-    #btn1 { top: 48%; left: 15.2%; }
-    #btn2 { top: 48%; left: 80%; transform: translateX(-100%); }
-    #btn3 { top: 25.5%; left: 92%; transform: translateX(-100%); }
-    #btn4 { top: 25.5%; left: 7%; }
-    #btn5 { top: 10%; left: 49%; transform: translateX(-50%); }
+    #btn1 { top: 48%; left: 15%; }
+    #btn2 { top: 48%; left: 85%; transform: translateX(-100%); }
+    #btn3 { top: 25%; left: 92%; transform: translateX(-100%); }
+    #btn4 { top: 25%; left: 7%; }
+    #btn5 { top: 8%; left: 50%; transform: translateX(-50%); }
 
-    /* Estilos metálicos únicos por botón */
     #btn1 {
-      background: linear-gradient(145deg, #d4af37, #f6e27a); /* dorado */
+      background: linear-gradient(145deg, #d4af37, #f6e27a);
     }
     #btn1:hover {
       background: linear-gradient(145deg, #f6e27a, #d4af37);
     }
 
     #btn2 {
-      background: linear-gradient(145deg, #c0c0c0, #ffffff); /* plateado */
+      background: linear-gradient(145deg, #c0c0c0, #ffffff);
     }
     #btn2:hover {
       background: linear-gradient(145deg, #ffffff, #c0c0c0);
     }
 
     #btn3 {
-      background: linear-gradient(145deg, #b87333, #d9985f); /* cobre */
+      background: linear-gradient(145deg, #b87333, #d9985f);
     }
     #btn3:hover {
       background: linear-gradient(145deg, #d9985f, #b87333);
     }
 
     #btn4 {
-      background: linear-gradient(145deg, #3f87a6, #ebf8e1); /* azul verdoso */
+      background: linear-gradient(145deg, #3f87a6, #ebf8e1);
     }
     #btn4:hover {
       background: linear-gradient(145deg, #ebf8e1, #3f87a6);
     }
 
     #btn5 {
-      background: linear-gradient(145deg, #6a0dad, #b19cd9); /* púrpura brillante */
+      background: linear-gradient(145deg, #6a0dad, #b19cd9);
     }
     #btn5:hover {
       background: linear-gradient(145deg, #b19cd9, #6a0dad);
     }
 
-    /* MODALES */
+    @media (max-width: 600px) {
+      .boton {
+        font-size: 14px;
+        padding: 10px 12px;
+        width: 130px;
+        height: 50px;
+      }
+    }
+
     .modal {
       display: none;
       opacity: 0;
@@ -159,88 +167,86 @@
   </style>
 </head>
 <body>
-
-<div class="contenedor">
-  <div class="imagen-wrapper">
-    <img class="imagen-estadio" src="https://raw.githubusercontent.com/acamarenavelazquez/WORK/refs/heads/main/estadiocfest2025%20(1).png" alt="Estadio Interactivo">
-
-    <button id="btn1" class="boton" onclick="abrirModal('modal1')">Al ritmo del futuro</button>
-    <button id="btn2" class="boton" onclick="abrirModal('modal2')">Ritmos locales</button>
-    <button id="btn3" class="boton" onclick="abrirModal('modal3')">Al ritmo de mi mejor versión</button>
-    <button id="btn4" class="boton" onclick="abrirModal('modal4')">Contagia el Ritmo</button>
-    <button id="btn5" class="boton" onclick="abrirModal('modal5')">Los Hit's</button>
-  </div>
-</div>
-
-<!-- MODALES -->
-<div id="modal1" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal('modal1')">&times;</span>
-    <h2>Al ritmo del futuro</h2>
-    <p>En esta categoría exploramos las tendencias que están transformando al mundo y a BBVA: desde la IA Generativa y los datos, hasta la sostenibilidad y la economía circular. Es el espacio donde el futuro se entrena hoy, y donde cada charla te equipa para liderar el cambio.</p>
-    <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
-  </div>
-</div>
-
-<div id="modal2" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal('modal2')">&times;</span>
-    <h2>Ritmos locales</h2>
-    <p>En esta categoría profundizamos en temas técnicos y estratégicos según nuestras diferentes Direcciones Generales: resiliencia, ciberseguridad, gestión financiera, automatización… Aquí se tocan los temas que solo tú dominas, con un enfoque local, pero con impacto global.</p>
-    <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
-  </div>
-</div>
-
-<div id="modal3" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal('modal3')">&times;</span>
-    <h2>Al ritmo de mi mejor versión</h2>
-    <p>Desarrolla habilidades como la empatía, la escucha y la innovación personal. Aprende a hackear tu pensamiento, transforma tu carrera y fortalece tu autenticidad. Aquí no solo se trata de crecer… sino de hacerlo a tu manera, a tu ritmo.</p>
-    <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
-  </div>
-</div>
-
-<div id="modal4" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal('modal4')">&times;</span>
-    <h2>Contagia el Ritmo</h2>
-    <p>Esta categoría está pensada para compartir con quienes más quieres: tu familia. Aquí hablamos de crianza moderna, relaciones de confianza, bienestar digital y mucho más. Porque cuando aprendes tú, también crece tu entorno.</p>
-    <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
-  </div>
-</div>
-
-<div id="modal5" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar" onclick="cerrarModal('modal5')">&times;</span>
-    <h2>Los Hit's</h2>
-    <p>Esta categoría está hecha de sesiones con punch, que te ayudarán a mejorar tu perfil profesional, potenciar tu empleabilidad y destacar en cualquier contexto. Desde cómo usar LinkedIn hasta cómo prepararte para una entrevista, estos son los temas que siempre pegan… y que necesitas tener en tu playlist de desarrollo.</p>
-    <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
-  </div>
-</div>
-
-<script>
-  function abrirModal(id) {
-    const modal = document.getElementById(id);
-    modal.classList.add('show');
-    modal.style.display = 'flex';
-    setTimeout(() => modal.style.opacity = '1', 10);
-  }
-
-  function cerrarModal(id) {
-    const modal = document.getElementById(id);
-    modal.style.opacity = '0';
-    setTimeout(() => {
-      modal.style.display = 'none';
-      modal.classList.remove('show');
-    }, 300);
-  }
-
-  window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-      cerrarModal(event.target.id);
-    }
-  }
-</script>
-
+    <div class="contenedor">
+        <div class="imagen-wrapper">
+          <img class="imagen-estadio" src="https://raw.githubusercontent.com/acamarenavelazquez/WORK/refs/heads/main/estadiocfest2025%20(1).png" alt="Estadio Interactivo">
+      
+          <button id="btn1" class="boton" onclick="abrirModal('modal1')">Al ritmo del futuro</button>
+          <button id="btn2" class="boton" onclick="abrirModal('modal2')">Ritmos locales</button>
+          <button id="btn3" class="boton" onclick="abrirModal('modal3')">Al ritmo de mi mejor versión</button>
+          <button id="btn4" class="boton" onclick="abrirModal('modal4')">Contagia el Ritmo</button>
+          <button id="btn5" class="boton" onclick="abrirModal('modal5')">Los Hit's</button>
+        </div>
+      </div>
+      
+      <!-- MODALES -->
+      <div id="modal1" class="modal">
+        <div class="modal-contenido">
+          <span class="cerrar" onclick="cerrarModal('modal1')">&times;</span>
+          <h2>Al ritmo del futuro</h2>
+          <p>En esta categoría exploramos las tendencias que están transformando al mundo y a BBVA: desde la IA Generativa y los datos, hasta la sostenibilidad y la economía circular. Es el espacio donde el futuro se entrena hoy, y donde cada charla te equipa para liderar el cambio.</p>
+          <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
+        </div>
+      </div>
+      
+      <div id="modal2" class="modal">
+        <div class="modal-contenido">
+          <span class="cerrar" onclick="cerrarModal('modal2')">&times;</span>
+          <h2>Ritmos locales</h2>
+          <p>En esta categoría profundizamos en temas técnicos y estratégicos según nuestras diferentes Direcciones Generales: resiliencia, ciberseguridad, gestión financiera, automatización… Aquí se tocan los temas que solo tú dominas, con un enfoque local, pero con impacto global.</p>
+          <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
+        </div>
+      </div>
+      
+      <div id="modal3" class="modal">
+        <div class="modal-contenido">
+          <span class="cerrar" onclick="cerrarModal('modal3')">&times;</span>
+          <h2>Al ritmo de mi mejor versión</h2>
+          <p>Desarrolla habilidades como la empatía, la escucha y la innovación personal. Aprende a hackear tu pensamiento, transforma tu carrera y fortalece tu autenticidad. Aquí no solo se trata de crecer… sino de hacerlo a tu manera, a tu ritmo.</p>
+          <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
+        </div>
+      </div>
+      
+      <div id="modal4" class="modal">
+        <div class="modal-contenido">
+          <span class="cerrar" onclick="cerrarModal('modal4')">&times;</span>
+          <h2>Contagia el Ritmo</h2>
+          <p>Esta categoría está pensada para compartir con quienes más quieres: tu familia. Aquí hablamos de crianza moderna, relaciones de confianza, bienestar digital y mucho más. Porque cuando aprendes tú, también crece tu entorno.</p>
+          <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
+        </div>
+      </div>
+      
+      <div id="modal5" class="modal">
+        <div class="modal-contenido">
+          <span class="cerrar" onclick="cerrarModal('modal5')">&times;</span>
+          <h2>Los Hit's</h2>
+          <p>Esta categoría está hecha de sesiones con punch, que te ayudarán a mejorar tu perfil profesional, potenciar tu empleabilidad y destacar en cualquier contexto. Desde cómo usar LinkedIn hasta cómo prepararte para una entrevista, estos son los temas que siempre pegan… y que necesitas tener en tu playlist de desarrollo.</p>
+          <a href="https://script.google.com/a/macros/bbva.com/s/AKfycbw9xwSt6qWpwAaAdAzTTmToDEN7Ebvco-73LxjXSVl8WAUsI30qHMy3iG9za5wvsudi6w/exec" target="_blank" class="oferta-btn">Conoce la oferta dando clic aquí</a>
+        </div>
+      </div>
+      
+      <script>
+        function abrirModal(id) {
+          const modal = document.getElementById(id);
+          modal.classList.add('show');
+          modal.style.display = 'flex';
+          setTimeout(() => modal.style.opacity = '1', 10);
+        }
+      
+        function cerrarModal(id) {
+          const modal = document.getElementById(id);
+          modal.style.opacity = '0';
+          setTimeout(() => {
+            modal.style.display = 'none';
+            modal.classList.remove('show');
+          }, 300);
+        }
+      
+        window.onclick = function(event) {
+          if (event.target.classList.contains('modal')) {
+            cerrarModal(event.target.id);
+          }
+        }
+      </script>
 </body>
 </html>
